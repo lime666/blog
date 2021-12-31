@@ -11,13 +11,12 @@
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @post.content %>
+  <%= image_tag("#{@post.image}") %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @post.image %>
+  <strong>Content:</strong>
+  <%= @post.content %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
