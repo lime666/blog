@@ -1,0 +1,11 @@
+  <div class="card">
+    <div class="card-img-top">
+      <%= image_tag("#{post.image}") %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <time><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
+      <br>
+      <%= link_to 'Read', post %>
+      </div>
+  </div>

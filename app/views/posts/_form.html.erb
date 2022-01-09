@@ -10,15 +10,18 @@
       </ul>
     </div>
   <% end %>
+  <p>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+  </p>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class='field'>
-    <%= form.select(:author_id, Author.all.collect {|a| [ a.full_name, a.id ] }, {}, {:class => "select_author"}) %>
-  </div>
+  <p>
+    <div class='field'>
+      <%= form.select(:author_id, Author.all.collect {|a| [ a.full_name, a.id ] }, {}, {:class => "select_author"}) %>
+    </div>
+  </p>
 
 <% if false %>
   <div class="dropdown">
@@ -33,22 +36,30 @@
     </div>
 <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <p>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+</p>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-  </div>
+  <p>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content %>
+    </div>
+  </p>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
+  <p>
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.text_field :image %>
+    </div>
+  </p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </p>
 <% end %>
