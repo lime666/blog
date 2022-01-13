@@ -10,12 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <p>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-  </p>
 
   <p>
     <div class='field'>
@@ -23,25 +17,12 @@
     </div>
   </p>
 
-<% if false %>
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Author
-    </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <%= Author.all.each do |full_name| %>
-          <li><%= Author.full_name %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
-
   <p>
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
-</p>
+  </p>
 
   <p>
     <div class="field">
