@@ -1,5 +1,5 @@
 class Author < ApplicationRecord
-  #dependent :destroy
+  #depend :destroy
   validates :first_name, :last_name, presence: true
   has_many :posts
 
