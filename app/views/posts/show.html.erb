@@ -25,11 +25,11 @@
 </p>
 
 <p><strong>Comments:</strong></p>
+<p class="fw-light">
+  <%= render @post.comments %>
+</p>
 <p>
-  <div class="fw-light">
-    <%= render @post.comments %>
-    <%= render 'comments/form', locals: { post: @post } %>
-  </div>
+  <%= render 'comments/form', locals: { post: @post } %>
 </p>
 
 

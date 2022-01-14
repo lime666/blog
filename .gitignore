@@ -36,5 +36,4 @@ yarn-debug.log*
 .yarn-integrity
 
 #config/database.yml
-Gemfile.lock
 .ruby-version
