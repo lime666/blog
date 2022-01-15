@@ -7,6 +7,12 @@
   </p>
 
   <p>
+    <div class='field'>
+      <%= form.select(:author_id, Author.all.collect {|a| [ a.full_name, a.id ] }, {}, {:class => "select_author"}) %>
+    </div>
+  </p>
+
+  <p>
     <div class="actions">
       <%= form.submit %>
     </div>
