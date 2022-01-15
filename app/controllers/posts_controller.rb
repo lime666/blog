@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  impressionist
   before_action :set_post, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json

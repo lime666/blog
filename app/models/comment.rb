@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  include ActionView::Helpers::DateHelper
   validates :body, presence: true
   belongs_to :post
   belongs_to :author

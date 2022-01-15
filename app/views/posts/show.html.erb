@@ -13,6 +13,18 @@
 </p>
 
 <p>
+  <div class="text-left">
+    <h4 class="fw-lighter">Updated at: <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago.</h4>
+  </div>
+</p>
+
+<p>
+  <div class="text-left">
+    <h4 class="fw-lighter">Views count: <%= @post.impressionist_count %></h4>
+  </div>
+</p>
+
+<p>
   <div class="text-center">
     <%= image_tag("#{@post.image}") %>
   </div>
@@ -27,15 +39,16 @@
 <p><strong>Comments:</strong></p>
 
 <%= form_with model: @comment do |form| %>
+  
   <%= form.label :status %>
   <%= form.select :status, Comment.statuses %>
+  
     <p class="fw-light">
-      <%= render @post.comments.unpublished %>
+      <%= render @post.comments %>
     </p>
+
 <% end %>
 
-
-<p>
   <%= render 'comments/form', locals: { post: @post } %>
 </p>
 

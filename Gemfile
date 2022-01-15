@@ -5,6 +5,7 @@ ruby '3.0.3'
 
 gem 'bootstrap', '~> 5.1.3'
 gem 'faker'
+gem 'impressionist', '~> 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 gem 'rubocop'
