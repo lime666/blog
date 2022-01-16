@@ -40,8 +40,9 @@
 
 <%= form_with model: @comment do |form| %>
   
-  <%= form.label :status %>
   <%= form.select :status, Comment.statuses %>
+
+
   
     <p class="fw-light">
       <%= render @post.comments %>

@@ -1,5 +1,6 @@
 <p><%= comment.body %></p>
 <p><%= comment.status %></p>
-<p class="fw-lighter">Updated at: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
+<p><%= comment.author.full_name %></p>
+<p class="fw-lighter">Updated: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
 <p><%= link_to "Delete Comment", [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <hr />
