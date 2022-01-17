@@ -40,8 +40,7 @@
 
 <%= form_with model: @comment do |form| %>
   
-  <%= form.select :status, Comment.statuses %>
-
+  <%= form.select :status, Comment.statuses, selected: 'unpublished' %>
 
   
     <p class="fw-light">
