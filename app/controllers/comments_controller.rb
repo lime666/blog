@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :post
 
-  def index
+  def unpub
     @comments = Comment.unpublished
     redirect_to post_path(@post)   
   end
