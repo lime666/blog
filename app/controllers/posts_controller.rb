@@ -47,8 +47,6 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-    #comment.published!
-    #redirect_to post_path
   end
 
   # DELETE /posts/1 or /posts/1.json

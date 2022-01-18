@@ -37,15 +37,16 @@
 </p>
 
 <p><strong>Comments:</strong></p>
+  <p class="fw-light">
+    <%= render @post.comments.published %>
+  </p>
 
 <%= form_with model: @comment do |form| %>
-  
-  <%= form.select :status, Comment.statuses, selected: 'unpublished' %>
 
-  
-    <p class="fw-light">
-      <%= render @post.comments %>
-    </p>
+  <div class='btn btn-danger'>
+    <%= link_to 'Show unpublished comments', post_comments_path(@post, @comments), method: :get %>
+  </div>
+
 
 <% end %>
 
