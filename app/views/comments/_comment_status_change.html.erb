@@ -1,0 +1,12 @@
+<%= form_with(model: @comment, scope: :status, url: @post) do |form| %>
+<%= form.select :status, Comment.statuses.keys %>
+
+<% if @post.comments.unpublished.present? %>
+  <%= render @post.comments.unpublished %>
+<% end %>
+
+  <div class="actions">
+    <%= form.submit('Show comments') %>
+  </div>
+
+<% end %>

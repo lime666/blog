@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   resources :posts do
-    resources :comments, only: [:create, :update, :destroy] do 
-      member do
-        get :unpub
-      end
-    end
+    resources :comments, only: [:create, :update, :destroy]
       
   end
+
+  resources :authors, only: [:create, :update, :destroy]
+  get 'register', to: 'authors#new'
   
   root 'posts#index' 
 end

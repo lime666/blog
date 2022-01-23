@@ -1,10 +1,6 @@
 class CommentsController < ApplicationController
   before_action :post
 
-  def unpub
-    @comments = Comment.unpublished
-    redirect_to post_path(@post)   
-  end
 
   def create
     @post.comments.create(comment_params)

@@ -41,18 +41,13 @@
     <%= render @post.comments.published %>
   </p>
 
-<%= form_with model: @comment do |form| %>
-<%= form.select :status, Comment.statuses %>
+<p>
+  <%= render 'comments/comment_status_change' %>
+</p>
 
-  <div class='btn btn-danger'>
-    <%= link_to 'Show unpublished comments', unpub_post_comment_path(@post, @post.comments), method: :get %>
-  </div>
-
-
-
-<% end %>
-
-  <%= render 'comments/form', locals: { post: @post } %>
+  <p>
+    <%= render 'comments/form', locals: { post: @post } %>
+  </p>
 </p>
 
 

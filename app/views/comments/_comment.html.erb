@@ -2,7 +2,7 @@
 <p><%= comment.author.full_name %></p>
 <p><%= comment.status %></p>
 <p>
-  <% if comment.status == 'unpublished' %>
+  <% if comment.unpublished? %>
   <div class='btn btn-danger'>
     <%= link_to 'Publish Comment', post_comment_path(comment.post, comment), method: :patch %>
   </div>
