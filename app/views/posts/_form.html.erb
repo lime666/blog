@@ -12,12 +12,6 @@
   <% end %>
 
   <p>
-    <div class='field'>
-      <%= form.select(:author_id, Author.all.collect {|a| [ a.full_name, a.id ] }, {}, {:class => "select_author"}) %>
-    </div>
-  </p>
-
-  <p>
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title %>

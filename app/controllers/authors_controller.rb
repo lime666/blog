@@ -1,5 +1,4 @@
 class AuthorsController < ApplicationController
-  wrap_parameters :author, include: [:first_name, :last_name, :email, :password, :password_confirmation]
 
   def new
   	@author = Author.new

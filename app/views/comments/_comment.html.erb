@@ -2,14 +2,18 @@
 <p><%= comment.author.full_name %></p>
 <p><%= comment.status %></p>
 <p>
+<% if comment.created_at != comment.updated_at %><b>edited</b> <%end%>
+<% if current_author && current_author.id == comment.author.id %>
+  <p><%= link_to "Edit Comment", post_edit_comment_path(comment.post, comment) if comment.created_at >= 1.hour.ago %></p>
+  <p><%= link_to "Delete Comment", [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% if comment.unpublished? %>
-  <div class='btn btn-danger'>
-    <%= link_to 'Publish Comment', post_comment_path(comment.post, comment), method: :patch %>
-  </div>
+    <div class='btn btn-danger'>
+      <%= link_to 'Publish Comment', post_comment_path(comment.post, comment), method: :patch %>
+    </div>
   <% end %>
+<% end %>
 </p>    
 
 
 <p class="fw-lighter">Updated: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
-<p><%= link_to "Delete Comment", [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <hr />

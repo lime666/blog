@@ -13,8 +13,15 @@
 
   <body>
     <div id="user_header">
+      <% if current_author %>
+        Logged in as <%= current_author.full_name %>.
+        <%= link_to "Log Out", sign_out_path, class: 'btn btn-light ml-3', method: :delete %>
+      <% else %>
       <%= link_to "Sign Up", register_path, class: 'btn btn-light ml-3' %>
+      <%= link_to "Sign In", sign_in_path, class: 'btn btn-light ml-3' %>
+      <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>

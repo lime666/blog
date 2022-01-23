@@ -1,7 +1,6 @@
 class Author < ApplicationRecord
   has_secure_password
 
-  attr_accessor :email, :password, :password_confirmation
 
   validates :first_name, :last_name, presence: true
   has_many :posts, dependent: :destroy
