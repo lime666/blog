@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :post
-  before_action :ensure_current_author, only: %i[ create edit update destroy ]
+  before_action :ensure_current_author, only: %i[create edit update destroy]
 
   def create
     @post.comments.create(comment_params.merge(author_id: current_author.id))
@@ -20,7 +20,6 @@ class CommentsController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   def destroy

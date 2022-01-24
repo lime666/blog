@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_current_author
-  	redirect_to sign_in_path, alert: "Please, sign in." if current_author.nil?
+    redirect_to sign_in_path, alert: 'Please, sign in.' if current_author.nil?
   end
 
   def set_cookies
