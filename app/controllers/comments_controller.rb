@@ -8,13 +8,21 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    #@comment = @post.comments.find(params[:id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.published!
     redirect_to post_path(@comment.post)
+
+=begin
+    if @comment.update(comment_params)
+      redirect_to root_path(@post), notice: 'Comment was successfully updated.'
+    else
+      render 'edit'
+    end
+=end
   end
 
   def destroy

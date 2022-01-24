@@ -4,7 +4,7 @@
 <p>
 <% if comment.created_at != comment.updated_at %><b>edited</b> <%end%>
 <% if current_author && current_author.id == comment.author.id %>
-  <p><%= link_to "Edit Comment", post_edit_comment_path(comment.post, comment) if comment.created_at >= 1.hour.ago %></p>
+  <p><%= link_to "Edit Comment", edit_post_comment_path(comment.post, comment) if comment.created_at >= 1.hour.ago %></p>
   <p><%= link_to "Delete Comment", [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% if comment.unpublished? %>
     <div class='btn btn-danger'>

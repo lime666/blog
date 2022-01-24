@@ -12,6 +12,7 @@
   </head>
 
   <body>
+
     <div id="user_header">
       <% if current_author %>
         Logged in as <%= current_author.full_name %>.
@@ -20,6 +21,11 @@
       <%= link_to "Sign Up", register_path, class: 'btn btn-light ml-3' %>
       <%= link_to "Sign In", sign_in_path, class: 'btn btn-light ml-3' %>
       <% end %>
+    </div>
+
+    <div class="d-grid gap-2">
+    <button type="button" id="modal_button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button>
+      <%= render 'layouts/modal_signup' if current_author.nil? && modal_signup %>
     </div>
 
     <%= yield %>
