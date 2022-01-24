@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-  <h1>Editing Comment</h1>
-    <%= render 'form', comment: @comment %>
+  <h1>Edit Comment</h1>
+    <%= render 'form', patch: @comment %>
       <div class="pt-2">
         <%= link_to 'Back', post_path(@post), class: 'btn btn-light ml-3' %>
       </div>

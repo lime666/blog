@@ -38,7 +38,19 @@
   </div>
 </p>
 
+<p>
+  <%= render 'comments/comment_status_change' %>
+</p>
+
 <p><strong>Comments:</strong></p>
+<p class="fw-light">
+  <% if params[:comments_scope] == 'unpublished' %>
+    <%= render @post.comments.unpublished %>
+  <% else %>
+    <%= render @post.comments.published %>
+  <% end %>
+</p>
+
 <% if current_author %>
   <p>
     <%= render 'comments/form', locals: { post: @post } %>
@@ -47,16 +59,6 @@
   <p>You need to <%= link_to "sign up", register_path, method: :get %> or <%= link_to "sign in", sign_in_path %> to leave a comment.</p>
 <% end %>
 </p>
-
-  <p class="fw-light">
-    <%= render @post.comments.published %>
-  </p>
-
-<p>
-  <%= render 'comments/comment_status_change' %>
-</p>
-
-
 
 <% if current_author && current_author.id == @post.author.id %>
 <%= link_to 'Edit', edit_post_path(@post) %> |

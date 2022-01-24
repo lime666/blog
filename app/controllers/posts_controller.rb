@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def search
+    @posts = Post.where("title ILIKE ?", "%#{params[:q]}%")
+    render 'index'
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
@@ -70,4 +75,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:name, :title, :content, :image, :author_id)
     end
+
 end
