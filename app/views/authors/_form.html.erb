@@ -23,5 +23,10 @@
     <%= form.text_field :email %>
   </div>
 
+  <div class="field">
+    <h5>Photo:</h5>
+    <%= form.text_field :avatar %>
+  </div>
+
   <div class="actions"><%= form.submit "Update Profile", class: 'btn btn-outline-info text-dark d-inline-block float-right', method: :post %></div>
 <% end %>
