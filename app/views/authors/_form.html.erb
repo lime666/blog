@@ -1,0 +1,27 @@
+<%= form_for current_author do |form| %>
+  <% if current_author.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% current_author.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h5>First name:</h5>
+    <%= form.text_field :first_name, class: "form-control", placeholder: "First name" %>
+  </div>
+  <div class="field">
+    <h5>Last name:</h5>
+    <%= form.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+  </div>
+  <div class="field">
+    <h5>Email:</h5>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="actions"><%= form.submit "Update Profile", class: 'btn btn-outline-info text-dark d-inline-block float-right', method: :post %></div>
+<% end %>

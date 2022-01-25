@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   get 'search', to: 'posts#search' 
 
-  resources :authors, only: [:create, :update, :destroy]
+  resources :authors, only: [:create, :edit, :update, :destroy]
   get 'register', to: 'authors#new'
+  get 'profile', to: 'authors#profile'
 
   resources :sessions, only: [:create, :destroy]
   get 'sign_in', to: 'sessions#new'

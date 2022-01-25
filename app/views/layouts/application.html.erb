@@ -18,6 +18,7 @@
       <% if current_author %>
         Logged in as <%= current_author.full_name %>.
         <%= link_to "Log Out", sign_out_path, class: 'btn btn-light ml-3', method: :delete %>
+        <%= link_to "Profile", profile_path, class: 'btn btn-light ml-3', method: :get %>
       <% else %>
       <%= link_to "Sign Up", register_path, class: 'btn btn-light ml-3' %>
       <%= link_to "Sign In", sign_in_path, class: 'btn btn-light ml-3' %>

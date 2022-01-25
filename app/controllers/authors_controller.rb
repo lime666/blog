@@ -12,6 +12,18 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def profile
+    @author = current_author
+  end
+
+  def update
+    if current_author.update(author_params)
+      redirect_to profile_path, notice: 'profile updated.'
+    else
+      redirect_to profile_path
+    end
+  end
+
   def destroy; end
 
   private
