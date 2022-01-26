@@ -1,4 +1,4 @@
-<%= form_for current_author do |form| %>
+<%= form_for current_author, url: author_path do |form| %>
   <% if current_author.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -20,13 +20,13 @@
   </div>
   <div class="field">
     <h5>Email:</h5>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "form-control", placeholder: "Email" %>
   </div>
 
   <div class="field">
     <h5>Photo:</h5>
-    <%= form.text_field :avatar %>
+    <%= form.text_field :avatar, class: "form-control", placeholder: "URL to your photo" %>
   </div>
 
-  <div class="actions"><%= form.submit "Update Profile", class: 'btn btn-outline-info text-dark d-inline-block float-right', method: :post %></div>
+  <div class="actions"><%= form.submit "Update Profile", class: 'btn btn-outline-info text-dark d-inline-block float-right', method: :patch %></div>
 <% end %>

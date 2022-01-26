@@ -9,13 +9,16 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where('title ILIKE ?', "%#{params[:q]}%")
+    @posts = Post.where('title ILIKE ? or content ILIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
     render 'index'
   end
 
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
+    unless current_author
+      @post.increment!(:views_count)
+    end
   end
 
   # GET /posts/new

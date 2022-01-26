@@ -1,5 +1,5 @@
 <h4><%= @author.full_name %></h4>
-<p><%= image_tag("#{@author.avatar.presence || 'https://coollib.net/sites/default/files/Barni_Stinson.jpg'}") %></p>
+<p><%= render 'authors/avatar' %></p>
 <p><%= @author.email %></p>
 
 

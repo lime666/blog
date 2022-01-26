@@ -18,17 +18,17 @@
   </div>
 </p>
 
-<% if false %>
+
 <p>
   <div class="text-left">
-    <h4 class="fw-lighter">Views count: <%= @post.impressionist_count %></h4>
+    <h4 class="fw-lighter">Views count: <%= @post.views_count %></h4>
   </div>
 </p>
-<% end %>
+
 
 <p>
   <div class="text-center">
-    <%= image_tag("#{@post.image}") %>
+    <%= image_tag("#{@post.image.presence || path_to_default_image}") %>
   </div>
 </p>
 
