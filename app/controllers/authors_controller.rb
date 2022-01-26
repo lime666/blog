@@ -18,7 +18,7 @@ class AuthorsController < ApplicationController
 
   def update
     if current_author.update(author_params)
-      redirect_to profile_path, notice: 'profile updated.'
+      redirect_to profile_path, notice: 'Profile updated.'
     else
       redirect_to profile_path
     end

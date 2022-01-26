@@ -6,5 +6,6 @@ class Post < ApplicationRecord
   belongs_to :author
   has_rich_text :content
   has_many :comments, dependent: :destroy
-  # is_impressionable
+
+  paginates_per 3
 end

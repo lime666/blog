@@ -4,6 +4,10 @@
 
 <br>
 
+<%= link_to_previous_page @posts, 'Previous Page' %> |
+<%= link_to_next_page @posts, 'Next Page' %>
 <%= render @posts %>
-
-<%= link_to 'New Post', new_post_path %>
+<%= paginate @posts, outer_window: 3 %>
+<% if current_author %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
