@@ -1,3 +1,4 @@
+<% @post.comments.each do |parent, children| %>
 <p><%== comment.body %></p>
 <p><%= comment.author.full_name %></p>
 <p><%= comment.status %></p>
@@ -14,6 +15,13 @@
 <% end %>
 </p>    
 
-
+<% if current_author && parent.ancestors.count < 5 %>
+  <button class='btn btn-outline-info reply_button'>Reply</button>
+  <% render 'form', parent_id: parent.id %>
+<% end %>
+<p><%#= render 'comment', comments: children %></p>
+<p></p>
 <p class="fw-lighter">Updated: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
 <hr />
+
+<% end %>

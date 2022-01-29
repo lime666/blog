@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   has_rich_text :content
   has_many :comments, dependent: :destroy
 
-  paginates_per 3
+  paginates_per 1
 end
