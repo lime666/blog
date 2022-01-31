@@ -1,7 +1,15 @@
-<% @post.comments.each do |parent, children| %>
+<%# @post.comments.each do |parent, children| %>
 <p><%== comment.body %></p>
 <p><%= comment.author.full_name %></p>
 <p><%= comment.status %></p>
+
+<% if current_author %>
+<p>Likes: <%= comment.author_comment_votes.liked.count %></p>
+<%= button_to '👍', post_comment_like_path(post_id: comment.post.id, comment_id: comment.id), method: :post %>
+<p>Dislikes: <%= comment.author_comment_votes.disliked.count %></p>
+<%= button_to '👎', post_comment_dislike_path(post_id: comment.post.id, comment_id: comment.id), method: :post %>
+<% end %>
+
 <p>
 <% if comment.created_at != comment.updated_at %><b>edited</b> <%end%>
 <% if current_author && current_author.id == comment.author.id %>
@@ -15,13 +23,13 @@
 <% end %>
 </p>    
 
-<% if current_author && parent.ancestors.count < 5 %>
+<%# if current_author && parent.ancestors.count < 5 %>
   <button class='btn btn-outline-info reply_button'>Reply</button>
-  <% render 'form', parent_id: parent.id %>
-<% end %>
+  <%# render 'form', parent_id: parent.id %>
+<%# end %>
 <p><%#= render 'comment', comments: children %></p>
 <p></p>
 <p class="fw-lighter">Updated: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
 <hr />
 
-<% end %>
+<%# end %>

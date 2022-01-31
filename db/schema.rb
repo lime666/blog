@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_233157) do
+ActiveRecord::Schema.define(version: 2022_01_31_140619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2022_01_26_233157) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "author_comment_votes", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "comment_id"
+    t.integer "vote_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id", "comment_id"], name: "index_author_comment_votes_on_author_id_and_comment_id", unique: true
   end
 
   create_table "authors", force: :cascade do |t|

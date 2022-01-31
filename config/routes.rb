@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :posts do
-    resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy] do
+      post 'like', to: 'author_comment_votes#like'
+      post 'dislike', to: 'author_comment_votes#dislike'
+    end
      
   end
 

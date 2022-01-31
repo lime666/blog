@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   validates :body, presence: true
   belongs_to :post
   belongs_to :author
+  has_many :author_comment_votes, dependent: :destroy
 
   enum status: %i[unpublished published]
 
