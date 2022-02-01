@@ -56,7 +56,7 @@
 <% if current_author %>
   <strong>New comment: </strong>
   <p>
-    <%= render 'comments/form', locals: { post: @post }, parent_comment: nil %>
+    <%= render 'comments/form', locals: { post: @post }, parent_id: nil %>
   </p>
 <% else %> 
   <p>You need to <%= link_to "sign up", register_path, method: :get %> or <%= link_to "sign in", sign_in_path %> to leave a comment.</p>
