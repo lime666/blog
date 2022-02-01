@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = @post.author
+    @comments = @post.comments.root
     unless current_author
       @post.increment!(:views_count)
     end

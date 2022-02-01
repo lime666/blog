@@ -1,4 +1,5 @@
-<%= form_with model: [@post, @post.comments.build] do |form| %>
+<%= form_with model: [@post, @comment ||= @post.comments.build] do |form| %>
+<%=# form.hidden_field :parent_id, value: parent_comment&.id %>
   <p>
     <div class="field">
       <%= form.label :body %>

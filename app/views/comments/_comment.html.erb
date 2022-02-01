@@ -1,7 +1,10 @@
-<%# @post.comments.each do |parent, children| %>
+<% if comment.parent.present? %>
+
 <p><%== comment.body %></p>
 <p><%= comment.author.full_name %></p>
 <p><%= comment.status %></p>
+
+<p class="fw-lighter">Updated: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
 
 <% if current_author %>
 <p>Likes: <%= comment.author_comment_votes.liked.count %></p>
@@ -21,15 +24,19 @@
     </div>
   <% end %>
 <% end %>
-</p>    
+</p>
 
-<%# if current_author && parent.ancestors.count < 5 %>
+<% end %>
+
+<% if current_author && comment.ancestors.count < 5 %>
   <button class='btn btn-outline-info reply_button'>Reply</button>
-  <%# render 'form', parent_id: parent.id %>
-<%# end %>
-<p><%#= render 'comment', comments: children %></p>
-<p></p>
-<p class="fw-lighter">Updated: <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago.</p>
+  <%= render 'comments/form', parent_comment: comment.id %>
+<% end %>
+
+<% if comment.children.present? %>
+<% comment.children.each do |children| %>
+  <p><%= render 'comments/comment', comment: children %></p>
+<% end %>
 <hr />
 
-<%# end %>
+<% end %>
