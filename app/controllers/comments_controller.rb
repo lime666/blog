@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
   before_action :ensure_current_author, only: %i[create edit update destroy]
 
   def create
-    @post.comments.create(comment_params.merge(author_id: current_author.id))
+    @comment = @post.comments.create(comment_params.merge(author_id: current_author.id))
+    #@comment = @post.comments.build
     redirect_to post_path(@post)
   end
 

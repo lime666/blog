@@ -1,3 +1,4 @@
+<%# comment ||= @post.comments.build%>
 <%= form_with model: [@post, @comment ||= @post.comments.build] do |form| %>
 <%#= form.hidden_field :parent_id, value: params[:parent_id] %>
   <p>

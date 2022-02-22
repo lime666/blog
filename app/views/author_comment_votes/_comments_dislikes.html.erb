@@ -1,0 +1,4 @@
+<div id="dislike-<%= @comment.id %>">
+  <p>Dislikes: <%= comment.author_comment_votes.disliked.count %></p>
+  <%= button_to '👎', post_comment_dislike_path(post_id: comment.post.id, comment_id: comment.id), method: :post, remote: true %>
+</div>

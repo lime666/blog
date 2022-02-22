@@ -1,0 +1,4 @@
+<div id="like-<%= @comment.id %>">
+  <p>Likes: <%= comment.author_comment_votes.liked.count %></p>
+  <%= button_to '👍', post_comment_like_path(post_id: comment.post.id, comment_id: comment.id), method: :post, remote: true %>
+</div>

@@ -4,11 +4,18 @@
 <p><%= comment.author.full_name %></p>
 <p><%= comment.status %></p>
 
+<%#= render 'author_comment_votes/comments_likes' %>
+<%#= render 'author_comment_votes/comments_dislikes' %>
+
 <% if current_author %>
-<p>Likes: <%= comment.author_comment_votes.liked.count %></p>
-<%= button_to '👍', post_comment_like_path(post_id: comment.post.id, comment_id: comment.id), method: :post %>
-<p>Dislikes: <%= comment.author_comment_votes.disliked.count %></p>
-<%= button_to '👎', post_comment_dislike_path(post_id: comment.post.id, comment_id: comment.id), method: :post %>
+<div id="like-<%= comment.id %>">
+  <p>Likes: <%= comment.author_comment_votes.liked.count %></p>
+  <%= button_to '👍', post_comment_like_path(post_id: comment.post.id, comment_id: comment.id), method: :post, remote: true %>
+</div>
+<div id="dislike-<%= comment.id %>">
+  <p>Dislikes: <%= comment.author_comment_votes.disliked.count %></p>
+  <%= button_to '👎', post_comment_dislike_path(post_id: comment.post.id, comment_id: comment.id), method: :post, remote: true %>
+</div>
 <% end %>
 
 <p>
