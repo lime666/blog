@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_31_140619) do
+ActiveRecord::Schema.define(version: 2022_02_22_002547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_01_31_140619) do
   create_table "author_comment_votes", force: :cascade do |t|
     t.integer "author_id"
     t.integer "comment_id"
-    t.integer "vote_value"
+    t.integer "vote_value", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id", "comment_id"], name: "index_author_comment_votes_on_author_id_and_comment_id", unique: true
@@ -81,9 +81,6 @@ ActiveRecord::Schema.define(version: 2022_01_31_140619) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "post_id"
     t.integer "author_id"
-    t.string "ancestry"
-    t.integer "parent_id"
-    t.index ["ancestry"], name: "index_comments_on_ancestry"
   end
 
   create_table "impressions", force: :cascade do |t|

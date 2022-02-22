@@ -10,6 +10,4 @@ class Comment < ApplicationRecord
   scope :unpublished, -> { where(status: 'unpublished') }
   scope :published, -> { where(status: 'published') }
 
-  has_ancestry
-  #cache_depth: true
 end
